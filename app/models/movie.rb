@@ -6,7 +6,7 @@ class Movie < ActiveRecord::Base
   validates_attachment_content_type :poster, :content_type => /\Aimage\/.*\Z/
 
   def upload_url
-    poster.url.gsub('s3', "s3-#{ENV['AWS_REGION']}")
+    poster.url
   end
 
   # By default, every file uploaded will be named 'data'.

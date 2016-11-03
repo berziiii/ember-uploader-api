@@ -8,7 +8,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.11'
 gem 'paperclip', '~> 5.0.0'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
