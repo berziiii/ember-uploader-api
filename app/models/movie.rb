@@ -1,8 +1,13 @@
 class Movie < ActiveRecord::Base
   has_attached_file :poster,  #Or whatever you want to call the image you're uploading.
-                    :styles => { :medium => "300x300>", :thumb => "100x100>" },
-                    :default_url => "/images/:style/missing.png"
+                    # :styles => { :medium => "300x300>", :thumb => "100x100>" },
+                    :default_url => "/images/:style/missing.png",
+                    :use_timestamp => false
   validates_attachment_content_type :poster, :content_type => /\Aimage\/.*\Z/
+
+  def upload_url
+    poster.url.gsub('s3', "s3-#{ENV['AWS_REGION']}")
+  end
 
   # By default, every file uploaded will be named 'data'.
   # This renames the file to a timestamp, preventing name collisions.
