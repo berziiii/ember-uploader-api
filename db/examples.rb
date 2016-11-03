@@ -16,3 +16,9 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+
+Movie.create([
+  {title: "Back to the future", release_year: 1979},
+  {title: "Star Wars", release_year: 1979},
+  {title: "Indiana Jones: Raiders of the lost Ark", release_year: 1980},
+  ])
